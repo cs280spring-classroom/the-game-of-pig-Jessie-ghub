@@ -4,9 +4,9 @@
 This repository contains a homework submission.
 
 ```text
-JHED=
-GITHUB_USERNAME=
-GITHUB_REPO=
+JHED=jluo30
+GITHUB_USERNAME=Jessie-ghub
+GITHUB_REPO=https://github.com/cs280spring-classroom/the-game-of-pig-Jessie-ghub
 GITHUB_PAGE=
 ```
 
