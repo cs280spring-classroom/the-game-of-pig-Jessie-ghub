@@ -7,7 +7,7 @@ This repository contains a homework submission.
 JHED=jluo30
 GITHUB_USERNAME=Jessie-ghub
 GITHUB_REPO=https://github.com/cs280spring-classroom/the-game-of-pig-Jessie-ghub
-GITHUB_PAGE=
+GITHUB_PAGE=https://cs280spring-classroom.github.io/the-game-of-pig-Jessie-ghub/
 ```
 
 Please refer to the description of Homework-1, Full-Stack JavaScript (Spring 2022) for details.
