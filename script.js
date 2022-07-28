@@ -32,7 +32,7 @@ function hold() {
 function roll() {
   // roll the die, update the UI
   const faceValue = Math.floor(Math.random() * 6) + 1;
-  const output = "&#x268" + (faceValue  - 1) + "; ";
+  const output = "&#x268" + (faceValue  - 1) + ";";
   const die = document.getElementById("die");
   die.innerHTML = output;
 
