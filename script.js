@@ -97,12 +97,12 @@ function setWinner(){
     document.getElementById("p1-score").style.width = 100 + "%";
     document.getElementById("p1-score").setAttribute("aria-valuenow", 100);
     document.getElementById("p1-score").innerText = '100 🎉';
-    // document.getElementById("p1-score").className = "progress-bar bg-success";
+    document.getElementById("p1-score").className = "progress-bar bg-success";
   } else {
     document.getElementById("p2-score").style.width = 100 + "%";
     document.getElementById("p2-score").setAttribute("aria-valuenow", 100);
     document.getElementById("p2-score").innerText = '100 🎉';
-    // document.getElementById("p2-score").className = "progress-bar bg-success";
+    document.getElementById("p2-score").className = "progress-bar bg-success";
   }
 }
 
