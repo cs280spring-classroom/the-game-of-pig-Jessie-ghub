@@ -13,5 +13,8 @@ jobs:
         with:
           browser: chrome
           headless: true
+          # Linux and MacOS
           start: npm start
-          wait-on: http://localhost:3001
+          # Takes precedences on Windows
+          start-windows: npm run start:windows:server
+          wait-on: http://localhost:3000
