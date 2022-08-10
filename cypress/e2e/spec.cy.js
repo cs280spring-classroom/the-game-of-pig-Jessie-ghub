@@ -39,7 +39,7 @@ describe('Required', () => {
 
 		var genArr = Array.from({ length: 15 }, (v, k) => k + 1);
 		cy.wrap(genArr).each(() => {
-			// check who's turn it is before roll
+			// check who's turn it is before roll 
 			cy.get('#result').then(($result) => {
 				playerBefore = $result.text();
 			});
