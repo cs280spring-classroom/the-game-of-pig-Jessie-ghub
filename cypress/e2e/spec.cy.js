@@ -4,12 +4,35 @@ describe('Required', () => {
 		cy.visit('https://cs280spring-classroom.github.io/the-game-of-pig-' + stu + '-ghub/');
 	});
 
-	// issue1: 'width: 0px' doesn't work
 	it('1. When the game starts, players score (and turn total) must be zero (i.e., both progress bars are empty).', () => {
-		cy.get('#p1-score').should('have.attr', 'style').and('include', 'width: 0%');
-		cy.get('#p1-hold').should('have.attr', 'style').and('include', 'width: 0%');
-		cy.get('#p2-score').should('have.attr', 'style').and('include', 'width: 0%');
-		cy.get('#p2-hold').should('have.attr', 'style').and('include', 'width: 0%');
+		cy.get('#p1-score').invoke('attr', 'style').then(function(width) {
+			if (width.includes('%')) {
+				cy.get('#p1-score').should('have.attr', 'style').and('include', 'width: 0%');
+			} else {
+				cy.get('#p1-score').should('have.attr', 'style').and('include', 'width: 0px');
+			}
+		});
+		cy.get('#p1-hold').invoke('attr', 'style').then(function(width) {
+			if (width.includes('%')) {
+				cy.get('#p1-score').should('have.attr', 'style').and('include', 'width: 0%');
+			} else {
+				cy.get('#p1-score').should('have.attr', 'style').and('include', 'width: 0px');
+			}
+		});
+		cy.get('#p2-score').invoke('attr', 'style').then(function(width) {
+			if (width.includes('%')) {
+				cy.get('#p1-score').should('have.attr', 'style').and('include', 'width: 0%');
+			} else {
+				cy.get('#p1-score').should('have.attr', 'style').and('include', 'width: 0px');
+			}
+		});
+		cy.get('#p2-hold').invoke('attr', 'style').then(function(width) {
+			if (width.includes('%')) {
+				cy.get('#p1-score').should('have.attr', 'style').and('include', 'width: 0%');
+			} else {
+				cy.get('#p1-score').should('have.attr', 'style').and('include', 'width: 0px');
+			}
+		});
 	});
 
 	it('2. When the game starts, it must be player-1s turn to roll the die.', () => {
@@ -23,9 +46,12 @@ describe('Required', () => {
 
 	// issue2: cannot be sure it's random
 	it('4. When the "Roll" button is clicked, the program must simulate rolling a die and reflect the outcome on the UI by updating the die face.', () => {
-		cy.get('#roll').click();
-		cy.get('#die').should(($btn) => {
-			expect($btn.text()).to.contains.oneOf([ '⚀', '⚁', '⚂', '⚃', '⚄', '⚅' ]);
+		var genArr = Array.from({ length: 10 }, (v, k) => k + 1);
+		cy.wrap(genArr).each(() => {
+			cy.get('#roll').click();
+			cy.get('#die').should(($btn) => {
+				expect($btn.text()).to.contains.oneOf([ '⚀', '⚁', '⚂', '⚃', '⚄', '⚅' ]);
+			});
 		});
 	});
 
@@ -39,7 +65,7 @@ describe('Required', () => {
 
 		var genArr = Array.from({ length: 15 }, (v, k) => k + 1);
 		cy.wrap(genArr).each(() => {
-			// check who's turn it is before roll 
+			// check who's turn it is before roll
 			cy.get('#result').then(($result) => {
 				playerBefore = $result.text();
 			});
@@ -513,7 +539,6 @@ describe('Satisfactory', () => {
 			});
 		});
 	});
-
 });
 
 describe('Complete', () => {
